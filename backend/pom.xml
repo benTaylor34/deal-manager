@@ -18,6 +18,9 @@
 
     <properties>
         <java.version>21</java.version>
+        <!-- Boot 3.5.6 manages 1.21.3, whose Docker client uses API 1.32; Docker Engine 29+
+             (GitHub runners) rejects anything below 1.40. 1.21.4 fixes the negotiation. -->
+        <testcontainers.version>1.21.4</testcontainers.version>
     </properties>
 
     <dependencies>
