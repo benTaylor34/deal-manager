@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: deal-manager
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/deals}
+    username: ${DB_USER:deals}
+    password: ${DB_PASSWORD:deals}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+
+deals:
+  approval:
+    # Discounts at or below this fraction are within RM authority (auto-approved on submit).
+    rm-discount-limit: 0.15
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
